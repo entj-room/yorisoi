@@ -4,6 +4,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ヨリソイ｜あなたのペースで、ちゃんと幸せになる。</title>
 <meta name="description" content="恋愛の悩みから、結婚のその先まで寄り添う結婚相談所。初回面談は無料・オンライン45分。カメラオフOK、営業は一切しません。">
+<link rel="canonical" href="'+BASE+'">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ヨリソイ">
+<meta property="og:title" content="ヨリソイ｜あなたのペースで、ちゃんと幸せになる。">
+<meta property="og:description" content="恋愛の悩みから、結婚のその先まで寄り添う結婚相談所。初回相談は無料・オンライン45分。カメラオフOK、勧誘なし。">
+<meta property="og:url" content="'+BASE+'">
+<meta property="og:image" content="'+BASE+'assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f5ead8">
+<!-- GA4: 測定IDを入れると有効化されます（例: 'G-XXXXXXXXXX'）。空のままなら何も読み込みません -->
+<script>
+window.YORISOI_GA_ID = '';
+(function(id){ if(!id) return;
+  var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+id; document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+  gtag('js',new Date()); gtag('config',id);
+})(window.YORISOI_GA_ID);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script src="assets/a5ddb068-03e9-4e64-b224-f53dd2a29908.js"></script>
@@ -565,10 +585,7 @@ a{color:var(--color-accent-2-800);}a:hover{color:var(--color-accent-2-600);}
     <span style="font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:0.14em;">YORISOI</span>
   </div>
   <p style="margin:10px 0 0;font-size:12px;line-height:1.9;">結婚相談所ヨリソイ｜【運営者名】<br>【所在地】<br>【加盟連盟】正規加盟店</p>
-  <div style="margin-top:18px;display:flex;gap:16px;font-size:12px;">
-    <a href="#" style="color:var(--color-accent-2-200);">特定商取引法に基づく表記</a>
-    <a href="#" style="color:var(--color-accent-2-200);">プライバシーポリシー</a>
-  </div>
+  <!-- 特定商取引法に基づく表記・プライバシーポリシーは、ページを用意してからここにリンクを戻す -->
   <p style="margin:22px 0 0;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.06em;">© 2026 YORISOI</p>
 </footer>
 
@@ -595,7 +612,33 @@ class Component extends DCLogic {
       contactPlaceholder: contact === 'LINE' ? 'LINE ID' : 'メールアドレス',
       pickLine: () => this.setState({ contact: 'LINE' }),
       pickMail: () => this.setState({ contact: 'メール' }),
-      submit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      submit: (e) => {
+        e.preventDefault();
+        const form = (e.currentTarget && e.currentTarget.tagName === 'FORM') ? e.currentTarget : ((e.target && e.target.closest) ? e.target.closest('form') : null) || document.querySelector('#apply form');
+        const fd = new FormData(form);
+        const v = (k) => (fd.get(k) || '').toString().trim();
+        const GF = 'https://docs.google.com/forms/d/e/1FAIpQLSeUJ0R1gceU8hjfstqq7rOTFqmBYyA0TkfgZJYrxHWc_WoTgg/formResponse';
+        const body = new URLSearchParams({
+          'entry.1590627875': v('name'),
+          'entry.170305871':  v('status'),
+          'entry.634168367':  v('type'),
+          'entry.1123882714': v('topic'),
+          'entry.787088048':  v('date1'),
+          'entry.1942665641': v('date2'),
+          'entry.985440223':  (v('contact') || contact) + ': ' + v('contactTo'),
+        });
+        const btn = form.querySelector('button[type=submit]');
+        if (btn) { btn.disabled = true; btn.textContent = '送信中…'; }
+        fetch(GF, { method: 'POST', mode: 'no-cors', body })
+          .then(() => {
+            if (window.gtag) gtag('event', 'first_talk_submit', { contact_method: v('contact') || contact, status: v('status') });
+            this.setState({ submitted: true });
+          })
+          .catch(() => {
+            if (btn) { btn.disabled = false; btn.textContent = '初回相談を申し込む（無料・オンライン45分）'; }
+            alert('送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。');
+          });
+      },
       statuses: ['片思い中', '交際中', '別れたばかり', 'いまは相手がいない'],
       types: ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'],
       reasons: [
@@ -608,7 +651,7 @@ class Component extends DCLogic {
       steps: [
         { no: '1', title: '初回相談', when: '無料・45分', body: 'いまの恋を整理します。ここで終わっても大丈夫。', more: true },
         { no: '2', title: '入会・プロフィール作成', when: '約2週間', body: '写真と文章を専門チームと一緒に。あなたらしさを言葉にします。', more: true },
-        { no: '3', title: 'お相手探し・お見合い', when: '月◯名まで', body: '担当が候補を一緒に見ます。お見合いはオンラインでも。', more: true },
+        { no: '3', title: 'お相手探し・お見合い', when: '', body: '担当が候補を一緒に見ます。お見合いはオンラインでも。', more: true },
         { no: '4', title: '交際', when: '約3ヶ月', body: '返事に迷った夜も、LINEで相談。相手のタイプから見立てを持ちます。', more: true },
         { no: '5', title: '成婚・その後', when: '', body: 'ゴールではなく始まり。結婚後の相談窓口も残します。', more: false },
       ],
