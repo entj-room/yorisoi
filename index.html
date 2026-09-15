@@ -19,9 +19,21 @@
 <script>
 window.YORISOI_GA_ID = 'G-Q234SXPEGC';
 (function(id){ if(!id) return;
+  /* 内部トラフィック: ?yorisoi_internal=1 を一度開くとその端末は internal 扱い（=0 で解除） */
+  var internal=false;
+  try {
+    var q=new URLSearchParams(location.search).get('yorisoi_internal');
+    if(q==='1') localStorage.setItem('yorisoi_internal','1');
+    if(q==='0') localStorage.removeItem('yorisoi_internal');
+    internal = localStorage.getItem('yorisoi_internal')==='1';
+    if(q!==null && history.replaceState) history.replaceState(null,'',location.pathname+location.hash);
+  } catch(e){}
   var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+id; document.head.appendChild(s);
   window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
-  gtag('js',new Date()); gtag('config',id);
+  gtag('js',new Date());
+  var cfg={}; if(internal) cfg.traffic_type='internal';
+  gtag('config',id,cfg);
+  window.YORISOI_INTERNAL=internal;
 })(window.YORISOI_GA_ID);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
