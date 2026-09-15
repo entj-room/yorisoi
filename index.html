@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ヨリソイ｜あなたのペースで、ちゃんと幸せになる。</title>
+<meta name="description" content="恋愛の悩みから、結婚のその先まで寄り添う結婚相談所。初回面談は無料・オンライン45分。カメラオフOK、営業は一切しません。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script src="assets/a5ddb068-03e9-4e64-b224-f53dd2a29908.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* Organic — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-accent-2: #7a8a5e;
+  --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-200: #eee7db;
+  --color-neutral-300: #dcd3c4;
+  --color-neutral-400: #c0b6a5;
+  --color-neutral-500: #a19786;
+  --color-neutral-600: #82796a;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-neutral-900: #2e2b25;
+
+  --color-accent-100: #fff2eb;
+  --color-accent-200: #ffe1d0;
+  --color-accent-300: #ffc6a5;
+  --color-accent-400: #f6a06b;
+  --color-accent-500: #d67f48;
+  --color-accent-600: #b2622d;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-900: #402310;
+
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-200: #e1eecc;
+  --color-accent-2-300: #ccdbb2;
+  --color-accent-2-400: #aebf92;
+  --color-accent-2-500: #8fa073;
+  --color-accent-2-600: #728157;
+  --color-accent-2-700: #56633f;
+  --color-accent-2-800: #3d472b;
+  --color-accent-2-900: #272e1b;
+
+  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-heading-weight: 400;
+  --font-body: "Figtree", system-ui, sans-serif;
+
+  --space-1: 4.4px;
+  --space-2: 8.8px;
+  --space-3: 13.2px;
+  --space-4: 17.6px;
+  --space-6: 26.4px;
+  --space-8: 35.2px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.washed{filter:saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94)}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* — rounded frame: everything softens, small controls go pill — */
+.card, .dialog { border-radius: calc(var(--radius-lg) * 1.15); }
+.btn, .tag, .seg, .input { border-radius: 999px; }
+.input { padding-inline: 14px; }
+
+</style>
+<script src="assets/63a6ead6-2047-4f83-a549-dd844ee5e94e.js"></script>
+<script src="assets/2e56d77e-406c-4231-944b-408aff376e86.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style></style>
+<style>
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:"Zen Kaku Gothic New",var(--font-body);-webkit-font-smoothing:antialiased;text-wrap:pretty;}
+a{color:var(--color-accent-2-800);}a:hover{color:var(--color-accent-2-600);}
+@keyframes yr-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes yr-fade{from{opacity:0}to{opacity:1}}
+.yr-cta:hover{background:var(--color-accent-2-800) !important;}
+.yr-cta:active{background:var(--color-accent-2-900) !important;}
+.yr-chip:has(input:checked){background:var(--color-accent-2-700);color:var(--color-bg);border-color:var(--color-accent-2-700);}
+.yr-in:focus-visible{outline:2px solid var(--color-accent-2-600);outline-offset:2px;border-color:var(--color-accent-2-600);}
+.yr-seg .seg-opt:has(input:checked){background:var(--color-accent-2-700);color:var(--color-bg);}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--color-bg);display:flex;justify-content:center;">
+<div style="width:100%;max-width:430px;">
+
+<!-- 1. ファーストビュー -->
+<header data-screen-label="01 FV" style="padding:0 22px 44px;position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-90px;top:-110px;width:280px;height:280px;border-radius:50%;background:var(--color-accent-2-200);pointer-events:none;"></div>
+  <nav style="display:flex;align-items:center;justify-content:space-between;height:60px;position:relative;">
+    <a href="#top" style="text-decoration:none;color:var(--color-text);display:flex;align-items:baseline;gap:8px;">
+      <span style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:20px;letter-spacing:0.2em;">ヨリソイ</span>
+      <span style="font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:0.14em;color:var(--color-accent-2-800);">YORISOI</span>
+    </a>
+    <a href="#apply" class="btn" style="background:var(--color-accent-2-700);color:var(--color-bg);font-size:12px;padding:8px 14px;min-height:36px;">初回相談を申し込む</a>
+  </nav>
+
+  <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;margin-top:28px;position:relative;animation:yr-rise .9s cubic-bezier(.2,.7,.2,1) both;">
+    <h1 style="margin:0;writing-mode:vertical-rl;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:30px;line-height:1.55;letter-spacing:0.14em;height:390px;color:var(--color-text);">
+      <span style="display:block;">あなたのペースで、</span>
+      <span style="display:block;color:var(--color-accent-2-800);">ちゃんと幸せになる。</span>
+    </h1>
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:14px;min-width:0;">
+      <sc-if value="{{ showHeroPhoto }}" hint-placeholder-val="{{ true }}">
+        <div class="washed" style="width:100%;aspect-ratio:3/4;border-radius:28px;overflow:hidden;background:var(--color-surface);">
+          <x-import component-from-global-scope="image-slot" id="hero-photo" shape="rect" placeholder="プランナーの写真（縦）" hint-size="100%,100%" style="display:block;width:100%;height:100%;" src="assets/edd9161c-24b2-40a1-aefb-30c296e76bd7.webp"></x-import>
+        </div>
+      </sc-if>
+      <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">急がせない。でも、遠回りもさせない。<br>結婚相談所ヨリソイは、恋の途中にいるあなたの隣に立つ場所です。</p>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;animation:yr-fade 1s .35s both;">
+    <a href="#apply" class="btn yr-cta" style="background:var(--color-accent-2-700);color:var(--color-bg);width:100%;min-height:56px;font-size:15px;font-weight:700;letter-spacing:0.02em;">初回相談を申し込む（無料・オンライン45分）</a>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:16px;font-size:12px;color:var(--color-neutral-800);">
+      <li style="display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--color-accent-2-600);"></span>入会の勧誘なし</li>
+      <li style="display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--color-accent-2-600);"></span>カメラオフOK</li>
+      <li style="display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--color-accent-2-600);"></span>話すだけで終われる</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;animation:yr-fade 1s .6s both;">
+    <div style="aspect-ratio:1;border-radius:50%;background:var(--color-accent-2-100);display:grid;place-content:center;text-align:center;padding:8px;">
+      <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;line-height:1;color:var(--color-accent-2-800);">1.2万</div>
+      <div style="font-size:10px;line-height:1.4;margin-top:6px;color:var(--color-neutral-800);">TikTok<br>フォロワー</div>
+    </div>
+    <div style="aspect-ratio:1;border-radius:50%;background:var(--color-accent-100);display:grid;place-content:center;text-align:center;padding:8px;">
+      <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;line-height:1;color:var(--color-accent-800);">30万</div>
+      <div style="font-size:10px;line-height:1.4;margin-top:6px;color:var(--color-neutral-800);">LIVE<br>累計視聴</div>
+    </div>
+    <div style="aspect-ratio:1;border-radius:50%;background:var(--color-accent-2-200);display:grid;place-content:center;text-align:center;padding:8px;">
+      <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;line-height:1;color:var(--color-accent-2-800);">800</div>
+      <div style="font-size:10px;line-height:1.4;margin-top:6px;color:var(--color-neutral-800);">恋愛相談<br>件数</div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. 今の恋に悩んでいる方へ -->
+<section data-screen-label="02 橋渡し" style="padding:52px 22px;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">FOR YOU</p>
+  <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">今の恋に、<br>悩んでいる方へ。</h2>
+  <p style="margin:22px 0 0;font-size:14px;line-height:2;color:var(--color-neutral-800);">「返信が遅いのは、冷めたから？」<br>「彼の“考えておく”は、どっちの意味？」<br>TikTokやLIVEで届く相談の多くは、相手の行動が読めない不安から始まっています。</p>
+  <p style="margin:16px 0 0;font-size:14px;line-height:2;color:var(--color-neutral-800);">ヨリソイの初回相談は、結婚相談所に入るための場ではありません。いまの恋を、一度だれかと整理する45分です。入る・入らないは、その後で決めていい。</p>
+</section>
+
+<!-- 3. ヨリソイについて -->
+<section data-screen-label="03 About" style="padding:40px 22px 52px;">
+  <div class="washed" style="width:100%;aspect-ratio:4/3;border-radius:28px 28px 28px 110px;overflow:hidden;background:var(--color-surface);">
+    <x-import component-from-global-scope="image-slot" id="about-photo" shape="rect" placeholder="相談風景・手元などの写真" hint-size="100%,100%" style="display:block;width:100%;height:100%;" src="assets/27298560-149b-49df-adac-1c6e217246c4.webp"></x-import>
+  </div>
+  <p style="margin:30px 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">ABOUT</p>
+  <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">結婚はゴールではなく、<br>始まりだから。</h2>
+  <p style="margin:20px 0 0;font-size:14px;line-height:2;color:var(--color-neutral-800);">ヨリソイは、16タイプの考え方を土台に「相手を理解すること」から始める結婚相談所です。焦らせて成婚数を積むことより、その先の生活が続くことを大切にしています。</p>
+  <p style="margin:14px 0 0;font-size:14px;line-height:2;color:var(--color-neutral-800);">担当プランナーがひとり、最初から最後まで隣に立ちます。あなたのペースで進めて、ちゃんと幸せになる。それだけを約束します。</p>
+</section>
+
+<!-- 4. 選ばれる理由 -->
+<section data-screen-label="04 理由" style="padding:52px 22px;background:var(--color-neutral-100);border-radius:56px 56px 0 0;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">WHY YORISOI</p>
+  <h2 style="margin:0 0 30px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">選ばれる、5つの理由</h2>
+  <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px;">
+    <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="5">
+      <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start;">
+        <span style="width:44px;height:44px;border-radius:50%;background:var(--color-accent-2-200);display:grid;place-content:center;font-family:'Shippori Mincho B1',serif;font-size:16px;color:var(--color-accent-2-800);">{{ r.no }}</span>
+        <div>
+          <h3 style="margin:0 0 6px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:17px;line-height:1.5;padding-top:10px;">{{ r.title }}</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">{{ r.body }}</p>
+        </div>
+      </li>
+    </sc-for>
+  </ol>
+</section>
+
+<!-- 5. サポート体制 -->
+<section data-screen-label="05 サポート" style="padding:52px 22px;background:var(--color-neutral-100);">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">SUPPORT</p>
+  <h2 style="margin:0 0 28px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">ひとりにしない、<br>3つの支え。</h2>
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="background:var(--color-bg);border-radius:32px;padding:22px 22px 24px;">
+      <h3 style="margin:0 0 8px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:18px;">担当プランナーが寄り添い続ける</h3>
+      <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">最初の相談から成婚まで、担当は変わりません。LINEでの相談はいつでも。お見合いの前後、返事に迷った夜も。</p>
+    </div>
+    <div style="background:var(--color-bg);border-radius:32px;padding:22px 22px 24px;">
+      <h3 style="margin:0 0 8px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:18px;">あなたの魅力を、ちゃんと伝える</h3>
+      <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">プロフィール写真、服装、文章。担当ひとりでは届かない部分を、それぞれの専門メンバーが後ろから支えます。</p>
+    </div>
+    <div style="background:var(--color-bg);border-radius:32px;padding:22px 22px 24px;">
+      <h3 style="margin:0 0 8px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:18px;">出会いは、全国から</h3>
+      <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">全国の相談所と会員を共有するネットワークIBJ（日本結婚相談所連盟）に加盟。ご希望の条件で、お相手を探せます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. まずは45分 -->
+<section id="apply" data-screen-label="06 相談・申込" style="padding:56px 22px 60px;background:var(--color-accent-2-100);border-radius:56px 56px 0 0;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-2-800);font-weight:600;">FIRST TALK</p>
+  <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:26px;line-height:1.6;">まずは45分、<br>話すだけ。</h2>
+  <p style="margin:18px 0 0;font-size:14px;line-height:2;color:var(--color-neutral-800);">無料のオンライン相談で、いまの恋を一緒に整理します。入会の話は、あなたが聞きたいと言うまでしません。</p>
+
+  <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;">
+    <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;">
+      <span style="width:36px;height:36px;border-radius:50%;background:var(--color-bg);display:grid;place-content:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--color-accent-2-800);">1</span>
+      <div><strong style="display:block;font-size:14.5px;font-weight:700;margin:8px 0 4px;">いまの状況を、聞く</strong><p style="margin:0;font-size:13px;line-height:1.8;color:var(--color-neutral-800);">片思いでも、交際中でも。話したい範囲で大丈夫です。</p></div>
+    </li>
+    <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;">
+      <span style="width:36px;height:36px;border-radius:50%;background:var(--color-bg);display:grid;place-content:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--color-accent-2-800);">2</span>
+      <div><strong style="display:block;font-size:14.5px;font-weight:700;margin:8px 0 4px;">相手の行動を、16タイプで読み解く</strong><p style="margin:0;font-size:13px;line-height:1.8;color:var(--color-neutral-800);">「なぜそうするのか」に、ひとつ見立てを持って帰れます。</p></div>
+    </li>
+    <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;">
+      <span style="width:36px;height:36px;border-radius:50%;background:var(--color-bg);display:grid;place-content:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--color-accent-2-800);">3</span>
+      <div><strong style="display:block;font-size:14.5px;font-weight:700;margin:8px 0 4px;">次の一歩を、一緒に決める</strong><p style="margin:0;font-size:13px;line-height:1.8;color:var(--color-neutral-800);">今の恋を続ける、区切る、視野を広げる。決めるのはあなたです。</p></div>
+    </li>
+  </ul>
+
+  <div style="margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px;">
+    <span class="tag" style="background:var(--color-bg);color:var(--color-accent-2-800);font-size:12px;padding:6px 12px;">無料</span>
+    <span class="tag" style="background:var(--color-bg);color:var(--color-accent-2-800);font-size:12px;padding:6px 12px;">オンライン・カメラオフOK</span>
+    <span class="tag" style="background:var(--color-bg);color:var(--color-accent-2-800);font-size:12px;padding:6px 12px;">当日の勧誘なし</span>
+  </div>
+
+  <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+  <form sc-camel-on-submit="{{ submit }}" style="margin-top:32px;background:var(--color-bg);border-radius:32px;padding:26px 20px 24px;display:flex;flex-direction:column;gap:20px;">
+    <h3 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:18px;">初回相談の申込み</h3>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">お名前（ニックネーム可）</label>
+      <input class="input yr-in" required="" name="name" placeholder="例：まゆ" style="min-height:46px;font-size:15px;"></div>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">今の状況</label>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <sc-for list="{{ statuses }}" as="s" hint-placeholder-count="4">
+          <label class="yr-chip" style="display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--color-neutral-300);background:var(--color-neutral-100);font-size:13.5px;cursor:pointer;">
+            <input type="radio" name="status" value="{{ s }}" style="position:absolute;opacity:0;width:0;height:0;">{{ s }}</label>
+        </sc-for>
+      </div></div>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">相手の16タイプ（任意）</label>
+      <sc-raw-select class="input yr-in" name="type" style="min-height:46px;font-size:15px;appearance:auto;">
+        <option value="">わからない／未選択</option>
+        <sc-for list="{{ types }}" as="t" hint-placeholder-count="16"><option value="{{ t }}">{{ t }}</option></sc-for>
+      </sc-raw-select></div>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">相談したいこと（任意・一言で）</label>
+      <textarea class="input yr-in" name="topic" rows="2" placeholder="例：彼の返信が減ってきた理由が知りたい" style="min-height:72px;font-size:15px;border-radius:20px;padding-top:12px;"></textarea></div>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">希望日時（第2希望まで）</label>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <input class="input yr-in" required="" name="date1" placeholder="第1希望　例：9/20（土）20時以降" style="min-height:46px;font-size:15px;">
+        <input class="input yr-in" name="date2" placeholder="第2希望" style="min-height:46px;font-size:15px;">
+      </div></div>
+
+    <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">連絡方法</label>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="seg yr-seg" style="width:100%;">
+          <label class="seg-opt" style="flex:1;justify-content:center;min-height:42px;font-size:14px;"><input type="radio" name="contact" value="LINE" checked="{{ isLine }}" sc-camel-on-change="{{ pickLine }}" style="position:absolute;opacity:0;width:0;height:0;">LINE</label>
+          <label class="seg-opt" style="flex:1;justify-content:center;min-height:42px;font-size:14px;"><input type="radio" name="contact" value="メール" checked="{{ isMail }}" sc-camel-on-change="{{ pickMail }}" style="position:absolute;opacity:0;width:0;height:0;">メール</label>
+        </div>
+        <input class="input yr-in" required="" name="contactTo" placeholder="{{ contactPlaceholder }}" style="min-height:46px;font-size:15px;">
+      </div></div>
+
+    <button type="submit" class="btn yr-cta" style="background:var(--color-accent-2-700);color:var(--color-bg);width:100%;min-height:56px;font-size:15px;font-weight:700;margin-top:4px;">初回相談を申し込む（無料・オンライン45分）</button>
+    <p style="margin:0;font-size:11.5px;line-height:1.7;color:var(--color-neutral-700);text-align:center;">送信後、1〜2営業日以内に日程のご連絡をします。<br>入会のご案内は、ご希望があった場合のみ。</p>
+  </form>
+  </sc-if>
+  <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:32px;background:var(--color-bg);border-radius:32px;padding:44px 24px;text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--color-accent-2-200);margin:0 auto 18px;display:grid;place-content:center;color:var(--color-accent-2-800);">
+        <svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </div>
+      <h3 style="margin:0 0 10px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:20px;">申込みを受け付けました。</h3>
+      <p style="margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">{{ contactMethod }}で日程のご連絡をします。<br>それまで、どうぞゆっくりお過ごしください。</p>
+    </div>
+  </sc-if>
+</section>
+
+<!-- 7. 活動の流れ -->
+<section data-screen-label="07 流れ" style="padding:56px 22px;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">FLOW</p>
+  <h2 style="margin:0 0 30px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">活動の流れ</h2>
+  <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;">
+    <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+      <li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span style="width:40px;height:40px;border-radius:50%;background:var(--color-accent-2-700);color:var(--color-bg);display:grid;place-content:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;flex-shrink:0;">{{ st.no }}</span>
+          <sc-if value="{{ st.more }}" hint-placeholder-val="{{ true }}"><span style="flex:1;width:2px;background:var(--color-accent-2-300);margin:6px 0;border-radius:2px;"></span></sc-if>
+        </div>
+        <div style="padding:9px 0 28px;">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;"><h3 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:17px;">{{ st.title }}</h3><span style="font-size:11px;color:var(--color-accent-700);font-weight:600;">{{ st.when }}</span></div>
+          <p style="margin:6px 0 0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">{{ st.body }}</p>
+        </div>
+      </li>
+    </sc-for>
+  </ol>
+</section>
+
+<!-- 8. プランナー -->
+<section data-screen-label="08 プランナー" style="padding:40px 22px 56px;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">PLANNERS</p>
+  <h2 style="margin:0 0 28px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">隣に立つ、代表プランナー</h2>
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:start;">
+      <div class="washed" style="width:120px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--color-surface);">
+        <x-import component-from-global-scope="image-slot" id="planner-1" shape="rect" placeholder="代表プランナー ENTJくん" hint-size="100%,100%" style="display:block;width:100%;height:100%;" src="assets/975ea6fb-a829-478f-bb9b-f0739f62adb4.webp"></x-import>
+      </div>
+      <div>
+        <span class="tag tag-accent-2" style="font-size:11px;">代表プランナー</span>
+        <h3 style="margin:8px 0 6px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:18px;">ENTJくん</h3>
+        <p style="margin:0;font-size:13px;line-height:1.85;color:var(--color-neutral-800);">TikTokとLIVEで届いた800件の恋愛相談から、ヨリソイを始めました。16タイプの視点で「彼がなぜそうするのか」を一緒に読み解くのが得意です。急がせません。でも、遠回りもさせません。成婚の日ではなく、その先の暮らしまで見届けるのが、私の仕事だと思っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 料金 -->
+<section data-screen-label="09 料金" style="padding:56px 22px;background:var(--color-neutral-100);border-radius:56px 56px 0 0;">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">PRICE</p>
+  <h2 style="margin:0 0 10px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">料金</h2>
+  <p style="margin:0 0 28px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">初回相談で決めなくて大丈夫。数字は先に、全部見せておきます。</p>
+  <div style="background:var(--color-bg);border-radius:32px;padding:26px 22px;display:flex;flex-direction:column;gap:0;">
+    <sc-for list="{{ prices }}" as="p" hint-placeholder-count="4">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--color-neutral-200);">
+        <div><div style="font-size:14px;font-weight:700;">{{ p.label }}</div><div style="font-size:11.5px;color:var(--color-neutral-700);margin-top:2px;">{{ p.note }}</div></div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;white-space:nowrap;color:var(--color-accent-2-800);">{{ p.amount }}</div>
+      </div>
+    </sc-for>
+    <p style="margin:16px 0 0;font-size:11.5px;line-height:1.7;color:var(--color-neutral-700);">すべて税込。初回相談・お見合い料は無料。途中解約時の返金規定は初回相談時にご説明します。</p>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section data-screen-label="10 FAQ" style="padding:56px 22px;background:var(--color-neutral-100);">
+  <p style="margin:0 0 12px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);font-weight:600;">FAQ</p>
+  <h2 style="margin:0 0 24px;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:24px;line-height:1.6;">よくあるご質問</h2>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+      <div style="background:var(--color-bg);border-radius:24px;overflow:hidden;">
+        <button type="button" sc-camel-on-click="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="all:unset;display:grid;grid-template-columns:minmax(0,1fr) 28px;gap:12px;align-items:center;width:100%;box-sizing:border-box;padding:18px 20px;cursor:pointer;font-family:inherit;">
+          <span style="font-size:14.5px;font-weight:700;line-height:1.6;">{{ f.q }}</span>
+          <span style="width:28px;height:28px;border-radius:50%;background:var(--color-accent-2-100);display:grid;place-content:center;color:var(--color-accent-2-800);font-family:'Figtree',sans-serif;font-size:18px;line-height:1;">{{ f.mark }}</span>
+        </button>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:0 20px 20px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);">{{ f.a }}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- 11. 締めCTA -->
+<section data-screen-label="11 締めCTA" style="padding:64px 22px 60px;background:var(--color-accent-2-800);color:var(--color-bg);border-radius:56px 56px 0 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;left:-80px;bottom:-120px;width:260px;height:260px;border-radius:50%;background:var(--color-accent-2-700);pointer-events:none;"></div>
+  <div style="position:relative;">
+    <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:26px;line-height:1.7;">急がなくていい。<br>でも、ひとりで<br>抱えなくてもいい。</h2>
+    <p style="margin:20px 0 28px;font-size:14px;line-height:2;color:var(--color-accent-2-100);">45分、話すだけ。それで気持ちが軽くなるなら、それで十分です。</p>
+    <a href="#apply" class="btn" style="background:var(--color-bg);color:var(--color-accent-2-800);width:100%;min-height:56px;font-size:15px;font-weight:700;">初回相談を申し込む（無料・オンライン45分）</a>
+  </div>
+</section>
+
+<!-- 12. フッター -->
+<footer data-screen-label="12 Footer" style="padding:36px 22px 44px;background:var(--color-accent-2-900);color:var(--color-accent-2-200);">
+  <div style="display:flex;align-items:baseline;gap:8px;color:var(--color-bg);">
+    <span style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:18px;letter-spacing:0.2em;">ヨリソイ</span>
+    <span style="font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:0.14em;">YORISOI</span>
+  </div>
+  <p style="margin:10px 0 0;font-size:12px;line-height:1.9;">結婚相談所ヨリソイ｜【運営者名】<br>【所在地】<br>【加盟連盟】正規加盟店</p>
+  <div style="margin-top:18px;display:flex;gap:16px;font-size:12px;">
+    <a href="#" style="color:var(--color-accent-2-200);">特定商取引法に基づく表記</a>
+    <a href="#" style="color:var(--color-accent-2-200);">プライバシーポリシー</a>
+  </div>
+  <p style="margin:22px 0 0;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:0.06em;">© 2026 YORISOI</p>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390},&quot;showHeroPhoto&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;ファーストビュー&quot;}}">
+class Component extends DCLogic {
+  state = { submitted: false, contact: 'LINE', open: 0 };
+  renderVals() {
+    const { submitted, contact, open } = this.state;
+    const faqData = [
+      ['結婚相談所に入る気はまだありません。相談だけでも大丈夫ですか？', 'はい。初回相談の半分以上の方が、まだ入会を考えていない状態で来られます。いまの恋の相談だけで終わって構いません。'],
+      ['交際中・片思い中でも相談できますか？', 'できます。むしろそこからの相談が一番多いです。相手の行動を16タイプの視点で一緒に読み解きます。'],
+      ['相談で勧誘されませんか？', '当日に入会の話をこちらから切り出すことはありません。ご希望があれば、料金と流れを説明します。'],
+      ['顔を出さずに参加できますか？', 'カメラオフで問題ありません。音声だけ、チャット中心でも対応します。'],
+      ['35歳以上ですが、対象になりますか？', 'はい。会員の約3割が35歳以上です。年齢より「どう進めたいか」を一緒に考えます。'],
+    ];
+    return {
+      showHeroPhoto: this.props.showHeroPhoto ?? true,
+      notSubmitted: !submitted, submitted,
+      isLine: contact === 'LINE', isMail: contact === 'メール',
+      contactMethod: contact,
+      contactPlaceholder: contact === 'LINE' ? 'LINE ID' : 'メールアドレス',
+      pickLine: () => this.setState({ contact: 'LINE' }),
+      pickMail: () => this.setState({ contact: 'メール' }),
+      submit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      statuses: ['片思い中', '交際中', '別れたばかり', 'いまは相手がいない'],
+      types: ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'],
+      reasons: [
+        { no: '1', title: '急がせない', body: '成婚を数字で追いません。あなたが決めるまで、待ちます。' },
+        { no: '2', title: '相手を理解することから始める', body: '16タイプの考え方を土台に、「なぜそうするのか」を一緒に読み解きます。' },
+        { no: '3', title: '担当が変わらない', body: '最初の相談から成婚まで、同じプランナーが隣にいます。' },
+        { no: '4', title: '結婚後まで見ている', body: '結婚は始まり。その先の生活が続く相手かどうかを、一緒に考えます。' },
+        { no: '5', title: '恋愛相談の現場から生まれた', body: 'TikTokとLIVEで届いた800件の相談が、ヨリソイの土台です。' },
+      ],
+      steps: [
+        { no: '1', title: '初回相談', when: '無料・45分', body: 'いまの恋を整理します。ここで終わっても大丈夫。', more: true },
+        { no: '2', title: '入会・プロフィール作成', when: '約2週間', body: '写真と文章を専門チームと一緒に。あなたらしさを言葉にします。', more: true },
+        { no: '3', title: 'お相手探し・お見合い', when: '月◯名まで', body: '担当が候補を一緒に見ます。お見合いはオンラインでも。', more: true },
+        { no: '4', title: '交際', when: '約3ヶ月', body: '返事に迷った夜も、LINEで相談。相手のタイプから見立てを持ちます。', more: true },
+        { no: '5', title: '成婚・その後', when: '', body: 'ゴールではなく始まり。結婚後の相談窓口も残します。', more: false },
+      ],
+      prices: [
+        { label: '初回相談', note: 'オンライン45分', amount: '無料' },
+        { label: '入会金', note: 'プロフィール作成・写真撮影を含む', amount: '¥100,000' },
+        { label: '月会費', note: 'お見合い調整・LINE相談', amount: '¥15,000' },
+        { label: '成婚料', note: '成婚退会時のみ', amount: '¥150,000' },
+      ],
+      faqs: faqData.map(([q, a], i) => ({ q, a, open: open === i, mark: open === i ? '−' : '+', toggle: () => this.setState({ open: open === i ? -1 : i }) })),
+    };
+  }
+}
+</script>
+
+
+
+</body></html>
