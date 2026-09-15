@@ -4,20 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ヨリソイ｜あなたのペースで、ちゃんと幸せになる。</title>
 <meta name="description" content="恋愛の悩みから、結婚のその先まで寄り添う結婚相談所。初回面談は無料・オンライン45分。カメラオフOK、営業は一切しません。">
-<link rel="canonical" href="'+BASE+'">
+<link rel="canonical" href="https://entj-room.github.io/yorisoi/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ヨリソイ">
 <meta property="og:title" content="ヨリソイ｜あなたのペースで、ちゃんと幸せになる。">
 <meta property="og:description" content="恋愛の悩みから、結婚のその先まで寄り添う結婚相談所。初回相談は無料・オンライン45分。カメラオフOK、勧誘なし。">
-<meta property="og:url" content="'+BASE+'">
-<meta property="og:image" content="'+BASE+'assets/og-image.jpg">
+<meta property="og:url" content="https://entj-room.github.io/yorisoi/">
+<meta property="og:image" content="https://entj-room.github.io/yorisoi/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5ead8">
 <!-- GA4: 測定IDを入れると有効化されます（例: 'G-XXXXXXXXXX'）。空のままなら何も読み込みません -->
 <script>
-window.YORISOI_GA_ID = '';
+window.YORISOI_GA_ID = 'G-Q234SXPEGC';
 (function(id){ if(!id) return;
   var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+id; document.head.appendChild(s);
   window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
@@ -466,9 +466,28 @@ a{color:var(--color-accent-2-800);}a:hover{color:var(--color-accent-2-600);}
       <textarea class="input yr-in" name="topic" rows="2" placeholder="例：彼の返信が減ってきた理由が知りたい" style="min-height:72px;font-size:15px;border-radius:20px;padding-top:12px;"></textarea></div>
 
     <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">希望日時（第2希望まで）</label>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <input class="input yr-in" required="" name="date1" placeholder="第1希望　例：9/20（土）20時以降" style="min-height:46px;font-size:15px;">
-        <input class="input yr-in" name="date2" placeholder="第2希望" style="min-height:46px;font-size:15px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:12px;color:var(--color-neutral-700);">第1希望</span>
+          <div style="display:flex;gap:8px;">
+            <input class="input yr-in" type="date" required="" name="date1" style="min-height:46px;font-size:15px;flex:1 1 0;min-width:0;appearance:auto;-webkit-appearance:none;">
+            <sc-raw-select class="input yr-in" required="" name="time1" style="min-height:46px;font-size:15px;flex:0 0 122px;appearance:auto;">
+              <option value="">時間</option>
+              <sc-for list="{{ timeSlots }}" as="t" hint-placeholder-count="26"><option value="{{ t }}">{{ t }}</option></sc-for>
+            </sc-raw-select>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:12px;color:var(--color-neutral-700);">第2希望（任意）</span>
+          <div style="display:flex;gap:8px;">
+            <input class="input yr-in" type="date" name="date2" style="min-height:46px;font-size:15px;flex:1 1 0;min-width:0;appearance:auto;-webkit-appearance:none;">
+            <sc-raw-select class="input yr-in" name="time2" style="min-height:46px;font-size:15px;flex:0 0 122px;appearance:auto;">
+              <option value="">時間</option>
+              <sc-for list="{{ timeSlots }}" as="t" hint-placeholder-count="26"><option value="{{ t }}">{{ t }}</option></sc-for>
+            </sc-raw-select>
+          </div>
+        </div>
+        <span style="font-size:11.5px;color:var(--color-neutral-600);">1枠45分。時間は開始時刻の目安で大丈夫です。</span>
       </div></div>
 
     <div class="field"><label style="font-size:12.5px;color:var(--color-neutral-800);margin-bottom:8px;">連絡方法</label>
@@ -617,14 +636,20 @@ class Component extends DCLogic {
         const form = (e.currentTarget && e.currentTarget.tagName === 'FORM') ? e.currentTarget : ((e.target && e.target.closest) ? e.target.closest('form') : null) || document.querySelector('#apply form');
         const fd = new FormData(form);
         const v = (k) => (fd.get(k) || '').toString().trim();
+        const fmtDate = (d, t) => {
+          if (!d) return '';
+          const [y, m, dd] = d.split('-').map(Number);
+          const w = ['日','月','火','水','木','金','土'][new Date(y, m-1, dd).getDay()];
+          return `${y}/${m}/${dd}（${w}）` + (t ? ' ' + t : '');
+        };
         const GF = 'https://docs.google.com/forms/d/e/1FAIpQLSeUJ0R1gceU8hjfstqq7rOTFqmBYyA0TkfgZJYrxHWc_WoTgg/formResponse';
         const body = new URLSearchParams({
           'entry.1590627875': v('name'),
           'entry.170305871':  v('status'),
           'entry.634168367':  v('type'),
           'entry.1123882714': v('topic'),
-          'entry.787088048':  v('date1'),
-          'entry.1942665641': v('date2'),
+          'entry.787088048':  fmtDate(v('date1'), v('time1')),
+          'entry.1942665641': fmtDate(v('date2'), v('time2')),
           'entry.985440223':  (v('contact') || contact) + ': ' + v('contactTo'),
         });
         const btn = form.querySelector('button[type=submit]');
@@ -640,6 +665,7 @@ class Component extends DCLogic {
           });
       },
       statuses: ['片思い中', '交際中', '別れたばかり', 'いまは相手がいない'],
+      timeSlots: (() => { const a=[]; for (let h=9; h<=22; h++) { a.push(String(h).padStart(2,'0')+':00'); if (h<22) a.push(String(h).padStart(2,'0')+':30'); } return a; })(),
       types: ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'],
       reasons: [
         { no: '1', title: '急がせない', body: '成婚を数字で追いません。あなたが決めるまで、待ちます。' },
@@ -666,7 +692,18 @@ class Component extends DCLogic {
   }
 }
 </script>
-
-
+<script>
+(function(){
+  var tries = 0;
+  var t = setInterval(function(){
+    var els = document.querySelectorAll('#apply input[type=date]');
+    if (els.length || ++tries > 40) {
+      clearInterval(t);
+      var d = new Date(); var iso = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      els.forEach(function(e){ e.min = iso; });
+    }
+  }, 250);
+})();
+</script>
 
 </body></html>
