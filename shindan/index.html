@@ -178,6 +178,18 @@ details p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--color-neu
 .pass p{margin:0;font-size:13px;line-height:1.9;color:var(--color-neutral-800)}
 .lock{margin-top:14px;border:1.5px dashed var(--color-neutral-400);border-radius:18px;padding:14px 16px;font-size:13px;color:var(--color-neutral-700);line-height:1.8}
 .lock b{display:block;color:var(--color-text);font-size:13.5px;margin-bottom:4px}
+.basis{border:1.5px solid var(--color-neutral-300);border-radius:18px;padding:4px 16px 14px;background:var(--color-neutral-100)}
+.brow{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:start;padding:12px 0 0;border-top:1px solid var(--color-divider);margin-top:12px}
+.brow:first-child{border-top:0;margin-top:0}
+.brow .bl{font-size:12px;letter-spacing:.06em;color:var(--color-accent-2-800);padding-top:2px}
+.brow .bv{font-size:15px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+.brow .bv small{font-family:var(--en);font-weight:600;font-size:11px;color:var(--color-neutral-600)}
+.bar{height:6px;border-radius:3px;background:var(--color-neutral-300);margin:6px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--color-accent-2-600);border-radius:3px}
+.brow p{margin:0;font-size:12.5px;line-height:1.7;color:var(--color-neutral-700)}
+.deep h4{margin:16px 0 4px;font-family:var(--serif);font-weight:500;font-size:15px}
+.deep h4:first-child{margin-top:6px}
+.deep p{margin:0;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)}
 .tease{position:relative;margin-top:18px;border:1.5px solid var(--color-neutral-300);border-radius:18px;padding:14px 16px 64px;background:var(--color-neutral-100);overflow:hidden}
 .tease .th{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--color-divider)}
 .tease .th b{font-family:var(--serif);font-weight:500;font-size:15px}
@@ -385,6 +397,24 @@ var Q=[
  {ax:'l',t:'家事や家計の分担は',a:'ルールを決めておきたい',b:'その時々で、柔軟に'}
 ];
 var MUST=['同じ地域に住む','子どもがほしい','子どもは望まない','仕事を続けたい','家事を分担したい','親との距離感が近い','転勤・引越しに前向き','お金の使い方が近い','価値観の話ができる'];
+var DEEP={
+ tena:{first:'出会ってすぐに「この人かも」と感じ取り、会う回数も連絡も自然と増えていきます。相手の表情や声の温度に敏感で、好意を隠すのが苦手。この素直さが、相手の警戒を早くほどきます。',grow:'関係が進むほど「言葉で確かめ合うこと」が安心の源になります。「好き」「会いたい」を日常的に交わせる相手とは、短い期間で深い信頼が育ちます。記念日や小さな節目を大事にするのもこのタイプです。',gap:'返信が遅い、言葉が少ないといった「静かな時間」を、気持ちが冷めたサインだと受け取りやすい場面。相手が行動で示すタイプだと、本当は大切にされているのに不安が先に立つことがあります。',marry:'結婚後は、毎日の「おはよう」「ありがとう」の積み重ねが夫婦の土台になります。言葉の往復を習慣にできる相手、または「言葉が少ないだけ」と翻訳できる自分の余裕が、長く続く鍵です。'},
+ michi:{first:'「今度」より「今から」。思い立ったらすぐ誘えるので、出会いから交際までの距離が短いタイプです。一緒にいる時間が楽しければ、それが何よりの好意のサインだと考えています。',grow:'デートの計画はゆるめでも、一緒に過ごす時間の密度で愛情を伝えます。ふらっと寄り道する、急においしいものを買って帰る。そういう小さな行動が、あなたなりの「好き」の形です。',gap:'言葉で確かめたい相手からは「本当に好きなの？」と聞かれやすく、計画を重んじる相手からは「雑」「行き当たりばったり」と映ることがあります。悪気がないぶん、指摘されると戸惑いがちです。',marry:'結婚生活では、あなたの「一緒にいる時間を楽しくする力」が家庭の空気をつくります。一方で家計や予定など「決めておく事柄」は相手に任せるか、月に一度の作戦会議を習慣にすると安定します。'},
+ toka:{first:'好意はあっても、いきなり距離を詰めることはしません。何度か会って、会話を重ねて、「この人は安心できる」と確かめてから一歩進みます。慎重ですが、冷たくはありません。',grow:'交際が進むと、将来の話や不安なことも言葉にして共有したくなります。「いま何を考えている？」と聞き合える関係が理想。相手の小さな変化に気づき、先回りして声をかけられる人です。',gap:'確かめたい気持ちが強いぶん、質問が多くなって「疑われている」「重い」と受け取られることがあります。また、答えが返ってくるまで自分の中で考え込みすぎて、疲れてしまうことも。',marry:'結婚後は、定期的に「最近どう？」と話す時間があるだけで安心して過ごせます。話し合いを面倒がらない相手と組めば、問題が大きくなる前に解決できる、長持ちする夫婦になれます。'},
+ sou:{first:'最初は口数が少なく、相手をよく観察するところから始まります。急がず、相手のペースに合わせながら、気づけば隣にいる。そんな距離の縮め方をするタイプです。',grow:'「好き」と口にする回数は少なくても、疲れているときに黙ってお茶を出す、送っていく、覚えていてくれる。そうした行動が積み重なって、相手の中に揺るがない信頼が育ちます。',gap:'気持ちを言葉にしないため、「何を考えているの？」「本当に好き？」と聞かれる場面が増えがち。自分では十分に示しているつもりなので、そのズレに気づきにくいのが難点です。',marry:'結婚後に、あなたの真価がいちばん出ます。日々の家事や相手の体調への気配りなど、生活そのものが愛情表現になります。月に一度でも気持ちを言葉にする習慣を足せば、ほぼ死角がありません。'},
+ fuu:{first:'初対面から明るく率直で、相手の良いところを見つけて言葉にできる人。出会いの場では印象に残りやすい一方、自分の予定や世界を崩してまで会おうとはしないので、「軽い」と誤解されることも。',grow:'べったりはしないけれど、会うときは全力。相手の挑戦を応援し、背中を押す言葉をかけられます。お互いの時間を尊重できる相手とは、風通しの良い、長続きする関係になります。',gap:'自由さを「本気じゃない」と受け取られる場面と、率直な言葉が思いのほか相手を傷つけてしまう場面。どちらも悪意はないのに、相手の温度と合わないときに起こります。',marry:'結婚しても、自分の時間と世界を持ち続けたいタイプ。それを理解してくれる相手なら、家庭が「帰る場所」であり「充電する場所」になります。連絡と会う頻度は、最初に擦り合わせておくと安心です。'},
+ senri:{first:'気になる相手には、迷わず自分から動きます。店を決め、日程を決め、エスコートする。行動で示す好意は分かりやすく、頼りがいとして伝わります。',grow:'交際が進むと「守る」「導く」意識が強くなります。相手の困りごとを先回りして解決し、一緒に前へ進む推進力になります。任せられる安心感は、このタイプならではの魅力です。',gap:'決断が早いぶん、相手の意見を聞く前に決めてしまい「勝手」と感じさせることがあります。また、感情の共有が少ないため、相手が「置いていかれている」と寂しさを覚える場面も。',marry:'結婚後は、住まい・お金・家族のことなど大きな決断をリードできる強みがあります。ただし「決める前に一言相談する」を習慣にできるかどうかで、夫婦の温度が大きく変わります。'},
+ chizu:{first:'ときめきだけでは動かず、価値観や将来の考え方を早めに知ろうとします。会話は自然と「これからどうしたいか」に向かうので、同じ方向を見ている相手とは急速に深まります。',grow:'将来の話を、具体的に言葉で共有したがるタイプ。「いつごろ結婚したい」「どこに住みたい」を早い段階で話せる相手と、安心して関係を築いていけます。決めたあとは迷いません。',gap:'条件や理屈が前に出て「打算的」「ときめきがない」と見られたり、将来の話が早すぎて相手に引かれたりする場面。あなたにとっては誠実さの表れなのに、伝わり方がズレることがあります。',marry:'結婚生活では、お金・家事・親との距離感などを言葉で擦り合わせるのが得意なので、大きな揉め事になりにくいタイプ。ときどき理屈を脇に置いて、一緒に楽しむ時間を意識的につくるとバランスが取れます。'},
+ mimori:{first:'第一印象では控えめで、自分から多くは語りません。相手をじっくり観察し、信頼できると分かってから、少しずつ距離を縮めます。時間はかかりますが、そのぶん判断はぶれません。',grow:'一度信頼した相手には、言葉より行動で誠実に応えます。約束は必ず守り、相手の生活を静かに支える。派手さはなくても、長く一緒にいるほど価値が分かるタイプです。',gap:'反応が薄く「興味がないのかな」と思われて、関係が動き出す前に終わってしまう場面。また、相手が言葉での確認を求めるタイプだと、沈黙が不安を生んでしまうことがあります。',marry:'結婚後の安定感は8パターンの中でも随一。生活のリズムを整え、危機のときほど落ち着いて対処できます。「大丈夫だよ」の一言を意識して口に出すだけで、相手の安心感は段違いに上がります。'}
+};
+var AXTXT={
+ d:{A:['寄り添い','会う頻度や連絡について、一緒にいる時間そのものを大切にする回答が多くありました。'],B:['自立','会う頻度や連絡について、自分の時間と相手の時間を分けて考える回答が多くありました。']},
+ c:{A:['直感','「なんかいい」という感覚を信じて進む回答が多くありました。'],B:['納得','理由や比較が揃ってから決める回答が多くありました。']},
+ e:{A:['言葉','気持ちは言葉で伝え、言葉で受け取りたいという回答が多くありました。'],B:['行動','気持ちは行動や態度で示し、行動で受け取りたいという回答が多くありました。']},
+ l:{A:['計画','予定や将来、家事の分担を前もって決めておきたい回答が多くありました。'],B:['柔軟','予定や将来を、流れの中で自然に決めたい回答が多くありました。']}
+};
+var AXNAME={d:'距離感',c:'決め方',e:'愛情表現',l:'歩幅'};
+var LIFE={A:'歩幅は「計画」寄り。住まいやお金の話は早めにテーブルに乗せておくと、安心して進めます。',B:'歩幅は「柔軟」寄り。決めごとは最小限にして、変化に合わせて調整していく進め方が向いています。'};
 var TYPES=['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
 var T16={
  E:'初対面でも人の多い場所で会話が弾みやすいタイプ。共通の友人がいる場も向いています。',
@@ -476,6 +506,8 @@ function renderMust(b){
   $('#fin').addEventListener('click',function(){compute();S.step++;render()});
 }
 function tally(ax){var a=0,b=0;Q.forEach(function(q,i){if(q.ax!==ax)return;if(S.ans[i]==='A')a++;else if(S.ans[i]==='B')b++});return a>=b?'A':'B'}
+function axCount(ax,v){var n=0;Q.forEach(function(q,i){if(q.ax===ax&&S.ans[i]===v)n++});return n}
+function axTotal(ax){return Q.filter(function(q){return q.ax===ax}).length}
 function compute(){
   var d=tally('d'),c=tally('c'),e=tally('e'),l=tally('l');
   S.axes={d:d,c:c,e:e,l:l};S.result=MAP[d+c+e];
@@ -489,6 +521,13 @@ function renderResult(b){
   b.innerHTML='<div class="rhead"><div class="qn">YOUR PATTERN</div><img src="'+imgOf(k)+'" alt=""><div class="rname">'+esc(p.name)+'<span style="font-size:14px;color:var(--color-neutral-700);margin-left:8px">'+esc(p.kana)+'</span></div><div class="rcatch">'+esc(p.catch)+'</div></div>'+
    '<p class="rdesc">'+esc(p.desc)+'</p>'+
    '<div class="rrow"><div class="card"><b>距離感</b><span>'+p.axis[0]+'</span></div><div class="card"><b>決め方</b><span>'+p.axis[1]+'</span></div><div class="card"><b>愛情表現</b><span>'+p.axis[2]+'</span></div><div class="card"><b>歩幅</b><span>'+(l==='A'?'計画':'柔軟')+'</span></div></div>'+
+   '<div class="eyebrow" style="margin:26px 0 4px">診断の根拠</div><p class="note" style="margin:0 0 6px">12問の回答を、4つの軸ごとに集計しています。</p><div class="basis">'+['d','c','e','l'].map(function(ax){var v=S.axes[ax];var n=axCount(ax,v);var tot=axTotal(ax);return '<div class="brow"><div class="bl">'+AXNAME[ax]+'</div><div><div class="bv">'+AXTXT[ax][v][0]+'<small>'+n+' / '+tot+'問</small></div><div class="bar"><i style="width:'+Math.round(n/tot*100)+'%"></i></div><p>'+esc(AXTXT[ax][v][1])+'</p></div></div>'}).join('')+'</div>'+
+   '<div class="eyebrow" style="margin:26px 0 4px">'+esc(p.name)+'の恋愛の傾向</div><div class="deep">'+
+   '<h4>出会いのころ</h4><p>'+esc(DEEP[k].first)+'</p>'+
+   '<h4>関係が深まると</h4><p>'+esc(DEEP[k].grow)+'</p>'+
+   '<h4>すれ違いが起きやすい場面</h4><p>'+esc(DEEP[k].gap)+'</p>'+
+   '<h4>結婚生活では</h4><p>'+esc(DEEP[k].marry)+' '+esc(LIFE[l])+'</p>'+
+   '<h4>あなたの強み</h4><p>'+esc(p.strength)+'</p></div>'+
    '<div class="eyebrow" style="margin:26px 0 8px">相性が良いパターン</div><div class="mates">'+p.good.map(function(g){return '<figure><img src="'+imgOf(g[0])+'" alt=""><figcaption>'+esc(P[g[0]].name)+'<small>'+esc(g[1])+'</small></figcaption></figure>'}).join('')+'</div>'+
    (tips.length?'<div class="eyebrow" style="margin:26px 0 8px">16タイプ（'+esc(t)+'）からの補足</div><ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">'+tips.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+
    (S.must.length?'<div class="eyebrow" style="margin:22px 0 8px">あなたが譲れないこと</div><div class="chips">'+S.must.map(function(m){return '<button type="button" class="sel" disabled>'+esc(m)+'</button>'}).join('')+'</div>':'')+
