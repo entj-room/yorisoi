@@ -141,8 +141,18 @@ details p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--color-neu
 .types{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
 .types button{background:var(--color-neutral-100);border:1.5px solid var(--color-neutral-300);border-radius:14px;padding:12px 0;font-family:var(--en);font-weight:600;font-size:14px;letter-spacing:.06em;cursor:pointer;color:var(--color-text)}
 .types button.sel{border-color:var(--color-accent-2-700);background:var(--color-accent-2-100)}
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.mini .opt{margin:0;padding:12px 12px;font-size:13.5px}
+.mini{margin-top:8px}
+.pair{margin-top:10px;border:1.5px solid var(--color-neutral-300);border-radius:20px;background:var(--color-neutral-200);padding:8px 8px 8px}
+.pair .pl{display:flex;align-items:center;gap:6px;margin:0 6px 6px;font-size:11px;letter-spacing:.08em;color:var(--color-neutral-600)}
+.pair .pl b{font-family:var(--en);font-weight:600;font-size:11px;color:var(--color-accent-2-700)}
+.pair .pl span{flex:1}
+.pair .pl small{font-size:10.5px;letter-spacing:.04em;color:var(--color-neutral-500)}
+.pair .pr{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0}
+.mini .opt{margin:0;padding:12px 6px;font-size:12.5px;line-height:1.55;text-align:center;border-radius:14px;background:var(--color-neutral-100)}
+.pair .or{display:flex;align-items:center;justify-content:center;width:28px;font-family:var(--en);font-size:10px;letter-spacing:.06em;color:var(--color-neutral-500)}
+.pair.done{border-color:var(--color-accent-2-300);background:var(--color-accent-2-100)}
+.pair.done .pl{color:var(--color-accent-2-700)}
+.mini .opt.dim{opacity:.55}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .chips button{background:var(--color-neutral-100);border:1.5px solid var(--color-neutral-300);border-radius:999px;padding:9px 14px;font-size:13.5px;cursor:pointer;color:var(--color-text)}
 .chips button.sel{border-color:var(--color-accent-2-700);background:var(--color-accent-2-100)}
@@ -168,6 +178,16 @@ details p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--color-neu
 .pass p{margin:0;font-size:13px;line-height:1.9;color:var(--color-neutral-800)}
 .lock{margin-top:14px;border:1.5px dashed var(--color-neutral-400);border-radius:18px;padding:14px 16px;font-size:13px;color:var(--color-neutral-700);line-height:1.8}
 .lock b{display:block;color:var(--color-text);font-size:13.5px;margin-bottom:4px}
+.tease{position:relative;margin-top:18px;border:1.5px solid var(--color-neutral-300);border-radius:18px;padding:14px 16px 64px;background:var(--color-neutral-100);overflow:hidden}
+.tease .th{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--color-divider)}
+.tease .th b{font-family:var(--serif);font-weight:500;font-size:15px}
+.tease .th small{font-size:10.5px;letter-spacing:.06em;color:var(--color-accent-2-700);border:1px solid var(--color-accent-2-300);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.tz b{display:block;font-size:12px;letter-spacing:.06em;color:var(--color-accent-2-800);margin-top:12px}
+.tz p{margin:2px 0 0;font-size:13.5px;line-height:1.8;color:var(--color-neutral-800)}
+.mz{filter:blur(4.5px);user-select:none;-webkit-user-select:none;pointer-events:none;opacity:.8}
+.tease:after{content:'';position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(rgba(249,244,237,0),var(--color-neutral-100) 55%)}
+.tzlock{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--color-accent-2-700);color:#fff;border-radius:999px;padding:11px 14px;font-size:13px;font-weight:700;text-decoration:none}
+.tzlock svg{width:14px;height:14px;flex:none}
 footer{padding:36px 22px 44px;background:var(--color-accent-2-900);color:var(--color-accent-2-200)}
 footer .brand{color:var(--color-bg)}footer .brand span{color:var(--color-accent-2-200)}
 footer p{margin:22px 0 0;font-family:var(--en);font-size:11px;letter-spacing:.06em}
@@ -430,13 +450,13 @@ function render(){
 }
 function renderType16(b){
   var h='<div class="qn">STEP 1 / 3</div><div class="q">あなたの16タイプは？</div><div class="types" id="types"></div>'+
-  '<p class="note" style="margin:14px 0 4px">わからない方は、下の4つを直感で選んでください（目安です）。</p>'+
+  '<p class="note" style="margin:14px 0 4px">わからない方は、4つの質問それぞれで近いほうを直感で選んでください（目安です）。</p>'+
   '<div class="mini" id="mini">'+
-  [['E','人と会うと元気が出る'],['I','ひとりの時間で回復する'],['S','事実や経験を重視する'],['N','可能性や意味を重視する'],['T','筋が通っているかで決める'],['F','気持ちや関係性で決める'],['J','決まっていると安心する'],['P','余白があるほうが楽']].map(function(o){return '<button class="opt" data-g="'+o[0]+'">'+o[1]+'</button>'}).join('')+'</div>'+
+  [['1','エネルギーの源','E','人と会うと元気が出る','I','ひとりの時間で回復する'],['2','情報のとらえ方','S','事実や経験を重視する','N','可能性や意味を重視する'],['3','決め方','T','筋が通っているかで決める','F','気持ちや関係性で決める'],['4','進め方','J','決まっていると安心する','P','余白があるほうが楽']].map(function(p){return '<div class="pair" data-pair="'+p[2]+p[4]+'"><div class="pl"><b>Q'+p[0]+'</b><span>'+p[1]+'</span><small>どちらか1つ</small></div><div class="pr"><button class="opt" data-g="'+p[2]+'">'+p[3]+'</button><span class="or">or</span><button class="opt" data-g="'+p[4]+'">'+p[5]+'</button></div></div>'}).join('')+'</div>'+
   '<div class="dnav"><button class="btn btn-primary" id="next1" disabled style="opacity:.5">次へ</button></div>';
   b.innerHTML=h;
-  var tg=$('#types');TYPES.forEach(function(t){var x=el('<button type="button">'+t+'</button>');x.addEventListener('click',function(){S.type16=t;S.guess={};tg.querySelectorAll('button').forEach(function(y){y.classList.toggle('sel',y===x)});$('#mini').querySelectorAll('.opt').forEach(function(y){y.classList.remove('sel')});enable()});tg.appendChild(x)});
-  $('#mini').querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){var g=o.dataset.g;var pair={E:'I',I:'E',S:'N',N:'S',T:'F',F:'T',J:'P',P:'J'};S.guess[g]=1;delete S.guess[pair[g]];S.type16=null;tg.querySelectorAll('button').forEach(function(y){y.classList.remove('sel')});$('#mini').querySelectorAll('.opt').forEach(function(y){y.classList.toggle('sel',!!S.guess[y.dataset.g])});if(Object.keys(S.guess).length===4){S.type16=['E','I'].filter(function(k){return S.guess[k]})[0]+['S','N'].filter(function(k){return S.guess[k]})[0]+['T','F'].filter(function(k){return S.guess[k]})[0]+['J','P'].filter(function(k){return S.guess[k]})[0]}enable()})});
+  var tg=$('#types');TYPES.forEach(function(t){var x=el('<button type="button">'+t+'</button>');x.addEventListener('click',function(){S.type16=t;S.guess={};tg.querySelectorAll('button').forEach(function(y){y.classList.toggle('sel',y===x)});$('#mini').querySelectorAll('.opt').forEach(function(y){y.classList.remove('sel','dim')});$('#mini').querySelectorAll('.pair').forEach(function(y){y.classList.remove('done')});enable()});tg.appendChild(x)});
+  $('#mini').querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){var g=o.dataset.g;var pair={E:'I',I:'E',S:'N',N:'S',T:'F',F:'T',J:'P',P:'J'};S.guess[g]=1;delete S.guess[pair[g]];S.type16=null;tg.querySelectorAll('button').forEach(function(y){y.classList.remove('sel')});$('#mini').querySelectorAll('.pair').forEach(function(p){var ks=p.dataset.pair.split('');var picked=ks.some(function(k){return S.guess[k]});p.classList.toggle('done',picked);p.querySelectorAll('.opt').forEach(function(y){var on=!!S.guess[y.dataset.g];y.classList.toggle('sel',on);y.classList.toggle('dim',picked&&!on)})});if(Object.keys(S.guess).length===4){S.type16=['E','I'].filter(function(k){return S.guess[k]})[0]+['S','N'].filter(function(k){return S.guess[k]})[0]+['T','F'].filter(function(k){return S.guess[k]})[0]+['J','P'].filter(function(k){return S.guess[k]})[0]}enable()})});
   function enable(){var n=$('#next1');var ok=!!S.type16;n.disabled=!ok;n.style.opacity=ok?'1':'.5'}
   $('#next1').addEventListener('click',function(){if(!S.type16)return;tsEvent('diag_type16',{type16:S.type16,guessed:Object.keys(S.guess).length===4});S.step=1;render()});
 }
@@ -462,6 +482,7 @@ function compute(){
   try{sessionStorage.setItem('ts_diag',JSON.stringify({r:S.result,t:S.type16,l:l,m:S.must}))}catch(x){}
   tsEvent('diag_complete',{pattern:S.result,type16:S.type16,distance:d==='A'?'yorisoi':'jiritsu',decide:c==='A'?'chokkan':'nattoku',express:e==='A'?'kotoba':'kodo',life:l==='A'?'keikaku':'junan',must_count:S.must.length});
 }
+function tz(title,text,n){var s=String(text||'');var i=s.slice(0,n+6).search(/[。、]/);var cut=i>=Math.min(4,n-2)&&i<n+6?i+1:n;return '<div class="tz"><b>'+esc(title)+'</b><p><span class="cl">'+esc(s.slice(0,cut))+'</span><span class="mz" aria-hidden="true">'+esc(s.slice(cut))+'</span></p></div>'}
 function renderResult(b){
   var k=S.result,p=P[k],l=S.axes.l;
   var t=S.type16||'';var tips=[T16[t[0]],T16[t[1]],T16[t[2]],T16[t[3]]].filter(Boolean);
@@ -471,11 +492,17 @@ function renderResult(b){
    '<div class="eyebrow" style="margin:26px 0 8px">相性が良いパターン</div><div class="mates">'+p.good.map(function(g){return '<figure><img src="'+imgOf(g[0])+'" alt=""><figcaption>'+esc(P[g[0]].name)+'<small>'+esc(g[1])+'</small></figcaption></figure>'}).join('')+'</div>'+
    (tips.length?'<div class="eyebrow" style="margin:26px 0 8px">16タイプ（'+esc(t)+'）からの補足</div><ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">'+tips.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+
    (S.must.length?'<div class="eyebrow" style="margin:22px 0 8px">あなたが譲れないこと</div><div class="chips">'+S.must.map(function(m){return '<button type="button" class="sel" disabled>'+esc(m)+'</button>'}).join('')+'</div>':'')+
-   '<div class="lock"><b>ここから先はLINEで</b>つまずきやすいところ／翻訳が必要なパターンと、そのコツ／初デートのコツ／あなたと相性の良いパターンの人が今ツキソイにいるか</div>'+
+   '<div class="tease"><div class="th"><b>'+esc(p.name)+'の詳しいレポート</b><small>LINE友だち限定</small></div>'+
+   tz('つまずきやすいところ',p.trip,10)+
+   tz('翻訳が必要なパターン：'+P[p.translate[0]].name,p.translate[1],8)+
+   tz('初デートのコツ',p.date,8)+
+   (function(){var s='相性の良い3パターン（'+p.good.map(function(g){return P[g[0]].name}).join('・')+'）の会員が、いま何名いるか。年代と活動エリアの内訳と合わせてお伝えします。';return tz('相性の良い人が、いまツキソイにいるか',s,s.indexOf('いま')+2)})()+
+   '<a class="tzlock" href="'+LINE_URL+'" target="_blank" rel="noopener" id="lineBtnTease"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>LINE友だち追加で、続きを読む（無料）</a></div>'+
    '<div class="pass"><b>合言葉</b><div class="word">'+esc(p.kana)+'</div><p>友だち追加のあと、この合言葉をトークに送ると、詳しいレポートが届きます。</p></div>'+
    '<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px"><a class="btn btn-line" href="'+LINE_URL+'" target="_blank" rel="noopener" id="lineBtn">LINEで詳しいレポートを受け取る</a><button class="btn btn-secondary" id="copyBtn">合言葉「'+esc(p.kana)+'」をコピー</button><a class="btn btn-secondary" href="'+CONSULT_URL+'" id="consultBtn">結果を持って、無料相談する</a><button class="btn btn-secondary" id="shareBtn" style="border-color:var(--color-neutral-400);color:var(--color-neutral-800)">結果をシェアする</button></div>'+
    '<p class="note" style="margin:18px 0 0;text-align:center"><a href="#" id="retry" style="color:var(--color-neutral-700)">もう一度診断する</a>　·　<a href="#" data-quit style="color:var(--color-neutral-700)">ページに戻る</a></p>';
   $('#lineBtn').addEventListener('click',function(){tsEvent('line_cta_click',{pattern:k,placement:'result'});try{navigator.clipboard&&navigator.clipboard.writeText(p.kana)}catch(x){}});
+  $('#lineBtnTease').addEventListener('click',function(){tsEvent('line_cta_click',{pattern:k,placement:'tease'});try{navigator.clipboard&&navigator.clipboard.writeText(p.kana)}catch(x){}});
   $('#copyBtn').addEventListener('click',function(){try{navigator.clipboard.writeText(p.kana).then(function(){toast('コピーしました：'+p.kana)})}catch(x){toast(p.kana)}tsEvent('passphrase_copy',{pattern:k})});
   $('#consultBtn').addEventListener('click',function(){tsEvent('consult_cta_click',{placement:'result',pattern:k})});
   $('#shareBtn').addEventListener('click',function(){var text='私の恋愛パターンは「'+p.name+'」でした。'+p.catch+' #ツキソイ相性診断';var url='https://tsukisoi-marriage.com/shindan/';tsEvent('share',{method:navigator.share?'native':'copy',content_type:'result',item_id:k});if(navigator.share){navigator.share({title:'ツキソイ相性診断',text:text,url:url}).catch(function(){})}else{try{navigator.clipboard.writeText(text+' '+url).then(function(){toast('シェア用テキストをコピーしました')})}catch(x){}}});
