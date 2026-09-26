@@ -198,6 +198,11 @@ details p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--color-neu
 .tz p{margin:2px 0 0;font-size:13.5px;line-height:1.8;color:var(--color-neutral-800)}
 .mz{filter:blur(4.5px);user-select:none;-webkit-user-select:none;pointer-events:none;opacity:.8}
 .tease:after{content:'';position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(rgba(249,244,237,0),var(--color-neutral-100) 55%)}
+.tease.big{max-height:700px}
+.tease.big .deep h4:first-child{margin-top:12px}
+.tease.big:after{height:180px}
+.tease .mates img{filter:blur(3px)}
+.memo{margin:8px 0 6px;padding:12px 14px;background:var(--color-neutral-100);border:1px solid var(--color-neutral-300);border-radius:12px;font-family:var(--sans);font-size:12.5px;line-height:1.75;white-space:pre-wrap;color:var(--color-neutral-800)}
 .tzlock{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--color-accent-2-700);color:#fff;border-radius:999px;padding:11px 14px;font-size:13px;font-weight:700;text-decoration:none}
 .tzlock svg{width:14px;height:14px;flex:none}
 footer{padding:36px 22px 44px;background:var(--color-accent-2-900);color:var(--color-accent-2-200)}
@@ -515,6 +520,9 @@ function compute(){
   tsEvent('diag_complete',{pattern:S.result,type16:S.type16,distance:d==='A'?'yorisoi':'jiritsu',decide:c==='A'?'chokkan':'nattoku',express:e==='A'?'kotoba':'kodo',life:l==='A'?'keikaku':'junan',must_count:S.must.length});
 }
 function tz(title,text,n){var s=String(text||'');var i=s.slice(0,n+6).search(/[。、]/);var cut=i>=Math.min(4,n-2)&&i<n+6?i+1:n;return '<div class="tz"><b>'+esc(title)+'</b><p><span class="cl">'+esc(s.slice(0,cut))+'</span><span class="mz" aria-hidden="true">'+esc(s.slice(cut))+'</span></p></div>'}
+function tzh(title,text,n){var s=String(text||'');var cut=n>0?Math.min(n,s.length):0;return '<h4>'+esc(title)+'</h4><p>'+(cut?'<span class="cl">'+esc(s.slice(0,cut))+'</span>':'')+'<span class="mz" aria-hidden="true">'+esc(s.slice(cut))+'</span></p>'}
+function memo(k){var p=P[k],a=S.axes||{},d=new Date(),ds=d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();var ax=['d','c','e','l'].map(function(x){return AXNAME[x]+'：'+AXTXT[x][a[x]][0]+' '+axCount(x,a[x])+'/'+axTotal(x)}).join('\n');return '【ツキソイ相性診断メモ】'+ds+'\nパターン：'+p.name+'（'+p.kana+'）\n16タイプ：'+(S.type16||'未選択')+(Object.keys(S.guess||{}).length===4?'（目安判定）':'')+'\n'+ax+'\n譲れないこと：'+(S.must.length?S.must.join('、'):'なし')+'\n※このまま送信してください。相談のときに使います。'}
+function oaUrl(text){return 'https://line.me/R/oaMessage/@853mdrmu/?'+encodeURIComponent(text)}
 function renderResult(b){
   var k=S.result,p=P[k],l=S.axes.l;
   var t=S.type16||'';var tips=[T16[t[0]],T16[t[1]],T16[t[2]],T16[t[3]]].filter(Boolean);
@@ -522,23 +530,23 @@ function renderResult(b){
    '<p class="rdesc">'+esc(p.desc)+'</p>'+
    '<div class="rrow"><div class="card"><b>距離感</b><span>'+p.axis[0]+'</span></div><div class="card"><b>決め方</b><span>'+p.axis[1]+'</span></div><div class="card"><b>愛情表現</b><span>'+p.axis[2]+'</span></div><div class="card"><b>歩幅</b><span>'+(l==='A'?'計画':'柔軟')+'</span></div></div>'+
    '<div class="eyebrow" style="margin:26px 0 4px">診断の根拠</div><p class="note" style="margin:0 0 6px">12問の回答を、4つの軸ごとに集計しています。</p><div class="basis">'+['d','c','e','l'].map(function(ax){var v=S.axes[ax];var n=axCount(ax,v);var tot=axTotal(ax);return '<div class="brow"><div class="bl">'+AXNAME[ax]+'</div><div><div class="bv">'+AXTXT[ax][v][0]+'<small>'+n+' / '+tot+'問</small></div><div class="bar"><i style="width:'+Math.round(n/tot*100)+'%"></i></div><p>'+esc(AXTXT[ax][v][1])+'</p></div></div>'}).join('')+'</div>'+
+   (S.must.length?'<div class="eyebrow" style="margin:26px 0 8px">あなたが譲れないこと</div><div class="chips">'+S.must.map(function(m){return '<button type="button" class="sel" disabled>'+esc(m)+'</button>'}).join('')+'</div>':'')+
    '<div class="eyebrow" style="margin:26px 0 4px">'+esc(p.name)+'の恋愛の傾向</div><div class="deep">'+
-   '<h4>出会いのころ</h4><p>'+esc(DEEP[k].first)+'</p>'+
-   '<h4>関係が深まると</h4><p>'+esc(DEEP[k].grow)+'</p>'+
-   '<h4>すれ違いが起きやすい場面</h4><p>'+esc(DEEP[k].gap)+'</p>'+
-   '<h4>結婚生活では</h4><p>'+esc(DEEP[k].marry)+' '+esc(LIFE[l])+'</p>'+
-   '<h4>あなたの強み</h4><p>'+esc(p.strength)+'</p></div>'+
-   '<div class="eyebrow" style="margin:26px 0 8px">相性が良いパターン</div><div class="mates">'+p.good.map(function(g){return '<figure><img src="'+imgOf(g[0])+'" alt=""><figcaption>'+esc(P[g[0]].name)+'<small>'+esc(g[1])+'</small></figcaption></figure>'}).join('')+'</div>'+
-   (tips.length?'<div class="eyebrow" style="margin:26px 0 8px">16タイプ（'+esc(t)+'）からの補足</div><ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">'+tips.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+
-   (S.must.length?'<div class="eyebrow" style="margin:22px 0 8px">あなたが譲れないこと</div><div class="chips">'+S.must.map(function(m){return '<button type="button" class="sel" disabled>'+esc(m)+'</button>'}).join('')+'</div>':'')+
-   '<div class="tease"><div class="th"><b>'+esc(p.name)+'の詳しいレポート</b><small>LINE友だち限定</small></div>'+
-   tz('つまずきやすいところ',p.trip,10)+
-   tz('翻訳が必要なパターン：'+P[p.translate[0]].name,p.translate[1],8)+
-   tz('初デートのコツ',p.date,8)+
-   (function(){var s='相性の良い3パターン（'+p.good.map(function(g){return P[g[0]].name}).join('・')+'）の会員が、いま何名いるか。年代と活動エリアの内訳と合わせてお伝えします。';return tz('相性の良い人が、いまツキソイにいるか',s,s.indexOf('いま')+2)})()+
-   '<a class="tzlock" href="'+LINE_URL+'" target="_blank" rel="noopener" id="lineBtnTease"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>LINE友だち追加で、続きを読む（無料）</a></div>'+
-   '<div class="pass"><b>合言葉</b><div class="word">'+esc(p.kana)+'</div><p>友だち追加のあと、この合言葉をトークに送ると、詳しいレポートが届きます。</p></div>'+
-   '<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px"><a class="btn btn-line" href="'+LINE_URL+'" target="_blank" rel="noopener" id="lineBtn">LINEで詳しいレポートを受け取る</a><button class="btn btn-secondary" id="copyBtn">合言葉「'+esc(p.kana)+'」をコピー</button><a class="btn btn-secondary" href="'+CONSULT_URL+'" id="consultBtn">結果を持って、無料相談する</a><button class="btn btn-secondary" id="shareBtn" style="border-color:var(--color-neutral-400);color:var(--color-neutral-800)">結果をシェアする</button></div>'+
+   '<h4>出会いのころ</h4><p>'+esc(DEEP[k].first)+'</p></div>'+
+   '<div class="tease big"><div class="th"><b>'+esc(p.name)+'の詳しいレポート</b><small>LINE友だち限定</small></div><div class="deep">'+
+   tzh('関係が深まると',DEEP[k].grow,22)+
+   tzh('すれ違いが起きやすい場面',DEEP[k].gap,0)+
+   tzh('結婚生活では',DEEP[k].marry+' '+LIFE[l],0)+
+   tzh('あなたの強み',p.strength,0)+
+   tzh('つまずきやすいところ',p.trip,0)+
+   tzh('翻訳が必要なパターン：'+P[p.translate[0]].name,p.translate[1],0)+
+   tzh('初デートのコツ',p.date,0)+
+   '</div><div class="eyebrow mz" style="margin:22px 0 8px">相性が良いパターン</div><div class="mates mz">'+p.good.map(function(g){return '<figure><img src="'+imgOf(g[0])+'" alt=""><figcaption>'+esc(P[g[0]].name)+'<small>'+esc(g[1])+'</small></figcaption></figure>'}).join('')+'</div>'+
+   (tips.length?'<div class="eyebrow mz" style="margin:22px 0 8px">16タイプ（'+esc(t)+'）からの補足</div><ul class="mz" style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">'+tips.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+
+   '<div class="deep">'+tzh('相性の良い人が、いまツキソイにいるか','相性の良い3パターンの会員がいま何名いるか、年代と活動エリアの内訳と合わせてお伝えします。',0)+'</div>'+
+   '<a class="tzlock" href="'+oaUrl(p.kana)+'" target="_blank" rel="noopener" id="lineBtnTease"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>LINE友だち追加で、続きを読む（無料）</a></div>'+
+   '<div class="pass"><b>合言葉</b><div class="word">'+esc(p.kana)+'</div><p>下のボタンを押すとLINEが開き、合言葉が入力された状態になります。そのまま送信すると、詳しいレポート（全3通）が届きます。</p></div>'+
+   '<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px"><a class="btn btn-line" href="'+oaUrl(p.kana)+'" target="_blank" rel="noopener" id="lineBtn">LINEで詳しいレポートを受け取る</a><button class="btn btn-secondary" id="copyBtn">合言葉「'+esc(p.kana)+'」をコピー</button><a class="btn btn-secondary" href="'+CONSULT_URL+'" id="consultBtn">結果を持って、無料相談する</a><button class="btn btn-secondary" id="shareBtn" style="border-color:var(--color-neutral-400);color:var(--color-neutral-800)">結果をシェアする</button></div>'+
    '<p class="note" style="margin:18px 0 0;text-align:center"><a href="#" id="retry" style="color:var(--color-neutral-700)">もう一度診断する</a>　·　<a href="#" data-quit style="color:var(--color-neutral-700)">ページに戻る</a></p>';
   $('#lineBtn').addEventListener('click',function(){tsEvent('line_cta_click',{pattern:k,placement:'result'});try{navigator.clipboard&&navigator.clipboard.writeText(p.kana)}catch(x){}});
   $('#lineBtnTease').addEventListener('click',function(){tsEvent('line_cta_click',{pattern:k,placement:'tease'});try{navigator.clipboard&&navigator.clipboard.writeText(p.kana)}catch(x){}});
