@@ -226,16 +226,17 @@ footer p{margin:22px 0 0;font-family:var(--en);font-size:11px;letter-spacing:.06
   <p class="eyebrow" style="margin-top:26px">TSUKISOI COMPATIBILITY TEST</p>
   <h1 class="hero">相性を、<br>勘じゃなく<em>診断で。</em></h1>
   <p class="lead" style="margin-top:14px">16タイプ × あなたの恋愛パターンで、<br>「合う理由」から探す結婚相談所。</p>
-  <div class="strip" aria-label="8つの恋愛パターン">
-    <figure><img src="../assets/soi/tena.webp" alt="手つなぎ型 テナ" loading="eager"><figcaption>手つなぎ型</figcaption></figure>
-    <figure><img src="../assets/soi/michi.webp" alt="寄り道型 ミチ"><figcaption>寄り道型</figcaption></figure>
-    <figure><img src="../assets/soi/toka.webp" alt="灯台型 トウカ"><figcaption>灯台型</figcaption></figure>
-    <figure><img src="../assets/soi/sou.webp" alt="伴走型 ソウ"><figcaption>伴走型</figcaption></figure>
-    <figure><img src="../assets/soi/fuu.webp" alt="追い風型 フウ"><figcaption>追い風型</figcaption></figure>
-    <figure><img src="../assets/soi/senri.webp" alt="先導型 センリ"><figcaption>先導型</figcaption></figure>
-    <figure><img src="../assets/soi/chizu.webp" alt="地図型 チズ"><figcaption>地図型</figcaption></figure>
-    <figure><img src="../assets/soi/mimori.webp" alt="見守り型 ミモリ"><figcaption>見守り型</figcaption></figure>
-  </div>
+<div class="fvv" style="position:relative;margin:22px 0 0;border-radius:22px;overflow:hidden;background:var(--color-bg);box-shadow:0 10px 30px rgba(60,40,20,.10);">
+<video id="fv-video" autoplay muted loop playsinline preload="metadata" poster="../assets/fv-poster.jpg" aria-label="8つの恋愛パターン（動画）" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--color-bg);">
+<source src="../assets/tsukisoi-fv17-voice.webm" type="video/webm">
+<source src="../assets/tsukisoi-fv17-voice.mp4" type="video/mp4">
+<img src="../assets/fv-poster.jpg" alt="8つの恋愛パターン" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;">
+</video>
+<button type="button" id="fv-sound" aria-label="音声をオンにする" style="position:absolute;right:10px;bottom:10px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.12);background:rgba(255,251,244,.92);font-size:18px;line-height:40px;text-align:center;cursor:pointer;padding:0;">🔇</button>
+</div>
+<script>
+(function(){var v=document.getElementById('fv-video'),b=document.getElementById('fv-sound');if(!v||!b)return;b.addEventListener('click',function(){v.muted=!v.muted;b.textContent=v.muted?'🔇':'🔊';b.setAttribute('aria-label',v.muted?'音声をオンにする':'音声をオフにする');if(!v.muted){v.currentTime=0;v.play();if(window.tsEvent)tsEvent('fv_sound_on',{page:'shindan'});}});})();
+</script>
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
     <button class="btn btn-primary" data-start="fv">無料で相性診断をする（3分）</button>
     <ul class="checks"><li>登録不要</li><li>12問</li><li>結果はその場で</li></ul>
